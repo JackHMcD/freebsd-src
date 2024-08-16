@@ -37,12 +37,6 @@
 	};
 };
 
-&backlight {
-	/* Minnie panel PWM must be >= 1%, so start non-zero brightness at 3 */
-	brightness-levels = <3 255>;
-	num-interpolated-steps = <252>;
-};
-
 &i2c_tunnel {
 	battery: bq27500@55 {
 		compatible = "ti,bq27500";
@@ -67,24 +61,6 @@
 		reset-gpios = <&gpio2 RK_PB7 GPIO_ACTIVE_LOW>;
 		vcc33-supply = <&vcc33_touch>;
 		vccio-supply = <&vcc33_touch>;
-	};
-};
-
-&panel {
-	compatible = "auo,b101ean01";
-
-	/delete-node/ panel-timing;
-
-	panel-timing {
-		clock-frequency = <66666667>;
-		hactive = <1280>;
-		hfront-porch = <18>;
-		hback-porch = <21>;
-		hsync-len = <32>;
-		vactive = <800>;
-		vfront-porch = <4>;
-		vback-porch = <8>;
-		vsync-len = <18>;
 	};
 };
 
